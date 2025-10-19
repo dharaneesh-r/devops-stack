@@ -1,0 +1,36 @@
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T07:48:01.941Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T07:48:05.868Z"}
+{"level":"info","message":"MongoDB Connected Successfully","timestamp":"2025-10-19T07:48:07.433Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T07:48:54.277Z"}
+{"level":"info","message":"MongoDB Connected Successfully","timestamp":"2025-10-19T07:48:54.903Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T07:48:57.546Z"}
+{"level":"info","message":"MongoDB Connected Successfully","timestamp":"2025-10-19T07:48:58.050Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T07:49:10.140Z"}
+{"level":"info","message":"MongoDB Connected Successfully","timestamp":"2025-10-19T07:49:10.772Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T07:52:04.321Z"}
+{"level":"info","message":"MongoDB Connected Successfully","timestamp":"2025-10-19T07:52:04.796Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T07:54:42.738Z"}
+{"level":"info","message":"MongoDB Connected Successfully","timestamp":"2025-10-19T07:54:43.259Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T07:54:53.203Z"}
+{"level":"info","message":"MongoDB Connected Successfully","timestamp":"2025-10-19T07:54:53.698Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T07:54:54.696Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T07:54:55.924Z"}
+{"level":"info","message":"MongoDB Connected Successfully","timestamp":"2025-10-19T07:54:56.540Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T07:56:06.948Z"}
+{"level":"error","message":"MongoDB Connection Failed:","timestamp":"2025-10-19T07:56:18.965Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T07:58:17.039Z"}
+{"level":"info","message":"MongoDB Connected Successfully","timestamp":"2025-10-19T07:58:20.243Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T07:58:36.609Z"}
+{"level":"error","message":"MongoDB Connection Failed:","timestamp":"2025-10-19T07:58:36.620Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T07:59:35.270Z"}
+{"level":"error","message":"MongoDB Connection Failed:","timestamp":"2025-10-19T07:59:35.274Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T07:59:42.318Z"}
+{"level":"error","message":"MongoDB Connection Failed:","timestamp":"2025-10-19T07:59:42.324Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T08:02:18.651Z"}
+{"level":"info","message":"MongoDB Connected Successfully","timestamp":"2025-10-19T08:02:19.176Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T08:04:39.934Z"}
+{"level":"info","message":"MongoDB Connected Successfully","timestamp":"2025-10-19T08:04:40.476Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T08:05:11.729Z"}
+{"level":"info","message":"MongoDB Connected Successfully","timestamp":"2025-10-19T08:05:12.260Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T08:05:38.292Z"}
+{"level":"info","message":"MongoDB Connected Successfully","timestamp":"2025-10-19T08:05:38.748Z"}

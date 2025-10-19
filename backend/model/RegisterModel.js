@@ -1,7 +1,6 @@
 // PACKAGES
 const mongoose = require("mongoose");
-const isEmail = require("validator/lib/isEmail");
-const isMobilePhone = require("validator/lib/isMobilePhone");
+const { isStrongPassword, isEmail } = require("validator");
 
 // SCHEMA FOR MONGODB REGISTER PAGE
 const registerSchema = new mongoose.Schema({
@@ -30,9 +29,16 @@ const registerSchema = new mongoose.Schema({
     trim: true,
     unique: true,
     required: true,
+    maxLength: 10,
+    minLength: 10,
+  },
+  password: {
+    type: String,
+    trim: true,
+    required: true,
     validate: {
-      validator: (value) => isMobilePhone(value, "any", { strictMode: false }),
-      message: "Invalid phone number",
+      validator: isStrongPassword,
+      message: "Password should be strong!",
     },
   },
 });
