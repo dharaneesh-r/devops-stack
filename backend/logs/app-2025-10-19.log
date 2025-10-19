@@ -119,3 +119,7 @@
 {"level":"info","message":"POST /register called","timestamp":"2025-10-19T08:52:55.982Z"}
 {"level":"error","message":"Error: secretOrPrivateKey must have a value\n    at module.exports [as sign] (D:\\devOps\\backend\\node_modules\\jsonwebtoken\\sign.js:111:20)\n    at postRegister (D:\\devOps\\backend\\controller\\RegisterController.js:50:23)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async D:\\devOps\\backend\\views\\RegisterView.js:28:5","timestamp":"2025-10-19T08:52:55.986Z"}
 {"level":"info","message":"GET /register called","timestamp":"2025-10-19T08:53:16.684Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T10:27:11.426Z"}
+{"level":"info","message":"MongoDB Connected Successfully","timestamp":"2025-10-19T10:27:12.116Z"}
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-19T11:19:17.840Z"}
+{"level":"info","message":"MongoDB Connected Successfully","timestamp":"2025-10-19T11:19:19.723Z"}
