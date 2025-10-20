@@ -28,7 +28,7 @@ jobs:
 
       # Step 4: Build Docker Image from backend folder
       - name: Build Docker Image
-        run: docker build -t dharaneeshr0803/devops-backend-development:latest ./backend
+        run: docker build -t dharaneeshr0803/full-devops-backend:latest ./backend
 
       # Step 5: Log in to Docker Hub
       - name: Log in to Docker Hub
@@ -39,4 +39,4 @@ jobs:
 
       # Step 6: Push Docker Image to Docker Hub
       - name: Push Docker Image
-        run: docker push dharaneeshr0803/devops-backend-development:latest
+        run: docker push dharaneeshr0803/full-devops-backend:latest
