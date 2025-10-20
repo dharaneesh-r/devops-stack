@@ -1,0 +1,118 @@
+---
+# --------------------
+# Secret for MongoDB credentials
+# --------------------
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mongo-secret
+type: Opaque
+data:
+  mongo-username: ZGhhcmFuZWVzaHIwODAz        # base64("admin")
+  mongo-password: MDgwMzA0    # base64("password")
+---
+# --------------------
+# ConfigMap for Backend environment
+# --------------------
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+data:
+  APP_ENV: "development"
+---
+# --------------------
+# MongoDB Deployment
+# --------------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo-development
+  template:
+    metadata:
+      labels:
+        app: mongo-development
+    spec:
+      containers:
+        - name: mongo
+          image: mongo:latest
+          ports:
+            - containerPort: 27017
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: mongo-username
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: mongo-password
+---
+# --------------------
+# MongoDB Service
+# --------------------
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-development
+spec:
+  selector:
+    app: mongo-development
+  ports:
+    - port: 27017
+      targetPort: 27017
+  clusterIP: None   # Headless service for internal cluster access
+---
+# --------------------
+# Backend Deployment
+# --------------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-development
+  template:
+    metadata:
+      labels:
+        app: backend-development
+    spec:
+      containers:
+        - name: backend-development
+          image: backend-development:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: APP_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: APP_ENV
+            - name: MONGODB_URL
+              value: "mongodb://mongo-development:27017/devops"
+---
+# --------------------
+# Backend Service
+# --------------------
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  selector:
+    app: backend-development
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: NodePort
