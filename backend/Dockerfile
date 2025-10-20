@@ -1,5 +1,5 @@
-# Use Node.js v22.18.0 as the base image
-FROM node:22.18.0
+# Use Node.js v20 as the base image
+FROM node:20  
 
 # Set working directory inside the container
 WORKDIR /usr/src/app
