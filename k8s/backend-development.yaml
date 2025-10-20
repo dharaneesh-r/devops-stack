@@ -1,29 +1,31 @@
 ---
-# --------------------
-# Secret for MongoDB credentials
-# --------------------
+# =====================================================
+# Secret: MongoDB Credentials
+# =====================================================
 apiVersion: v1
 kind: Secret
 metadata:
   name: mongo-secret
 type: Opaque
 data:
-  mongo-username: ZGhhcmFuZWVzaHIwODAz        # base64("admin")
-  mongo-password: MDgwMzA0    # base64("password")
+  mongo-username: ZGhhcmFuZWVzaHIwODAz # base64("admin")
+  mongo-password: MDgwMzA0 # base64("password")
+
 ---
-# --------------------
-# ConfigMap for Backend environment
-# --------------------
+# =====================================================
+# ConfigMap: Backend Environment Configuration
+# =====================================================
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: backend-config
 data:
   APP_ENV: "development"
+
 ---
-# --------------------
+# =====================================================
 # MongoDB Deployment
-# --------------------
+# =====================================================
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -54,10 +56,16 @@ spec:
                 secretKeyRef:
                   name: mongo-secret
                   key: mongo-password
+          readinessProbe:
+            exec:
+              command: ["mongo", "--eval", "db.adminCommand('ping')"]
+            initialDelaySeconds: 10
+            periodSeconds: 10
+
 ---
-# --------------------
+# =====================================================
 # MongoDB Service
-# --------------------
+# =====================================================
 apiVersion: v1
 kind: Service
 metadata:
@@ -68,11 +76,12 @@ spec:
   ports:
     - port: 27017
       targetPort: 27017
-  clusterIP: None   # Headless service for internal cluster access
+  clusterIP: None # Headless service for internal access
+
 ---
-# --------------------
+# =====================================================
 # Backend Deployment
-# --------------------
+# =====================================================
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -89,7 +98,9 @@ spec:
     spec:
       containers:
         - name: backend-development
+          # ✅ Use the locally built image inside Minikube
           image: backend-development:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
           env:
@@ -100,10 +111,23 @@ spec:
                   key: APP_ENV
             - name: MONGODB_URL
               value: "mongodb://mongo-development:27017/devops"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 30
+
 ---
-# --------------------
+# =====================================================
 # Backend Service
-# --------------------
+# =====================================================
 apiVersion: v1
 kind: Service
 metadata:
