@@ -13,6 +13,10 @@ RUN npm install
 # Copy the rest of your application code
 COPY . .
 
+# Run Tests 
+
+RUN npm test
+
 # Expose the port your app runs on
 EXPOSE 8080
 

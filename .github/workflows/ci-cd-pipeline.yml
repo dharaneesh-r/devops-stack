@@ -26,17 +26,22 @@ jobs:
         working-directory: ./backend
         run: npm install
 
-      # Step 4: Build Docker Image from backend folder
+      # Step 4: Run tests inside backend folder
+      - name: Run tests
+        working-directory: ./backend
+        run: npm test
+
+      # Step 5: Build Docker Image from backend folder
       - name: Build Docker Image
         run: docker build -t dharaneeshr0803/full-devops-backend:latest ./backend
 
-      # Step 5: Log in to Docker Hub
+      # Step 6: Log in to Docker Hub
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
-      # Step 6: Push Docker Image to Docker Hub
+      # Step 7: Push Docker Image to Docker Hub
       - name: Push Docker Image
         run: docker push dharaneeshr0803/full-devops-backend:latest
