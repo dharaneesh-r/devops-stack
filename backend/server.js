@@ -24,6 +24,7 @@ const MONGODB_URL = process.env.MONGODB_URL;
 
 const logger = require("./utils/WinstonLogger");
 const RegisterRouter = require("./views/RegisterView");
+const ProductRouter = require("./views/ProductView");
 
 // --------------------------------------
 // MIDDLEWARES
@@ -87,6 +88,7 @@ mongoose
 
 // MAIN ROUTE
 app.get("/home", (req, res) => {
+  logger.info("Home route accessed");
   res.status(200).json({
     message: "Welcome to DevOps Backend",
     uptime: process.uptime(),
@@ -96,6 +98,7 @@ app.get("/home", (req, res) => {
 
 // REGISTER API ROUTE
 app.use("/", RegisterRouter);
+app.use("/", ProductRouter)
 
 // ----------------------------------
 // GLOBAL ERROR HANDLER

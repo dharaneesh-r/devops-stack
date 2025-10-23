@@ -3,8 +3,6 @@
 const Register = require("../model/RegisterModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const winston = require("winston");
-require("winston-daily-rotate-file");
 
 // ------------------------
 // WINSTON LOGGER WITH DAILY ROTATION
