@@ -1,0 +1,4 @@
+{"level":"info","message":"Server running on port 8080","timestamp":"2025-10-25T06:11:34.014Z"}
+{"level":"info","message":"MongoDB Connected Successfully","timestamp":"2025-10-25T06:11:35.048Z"}
+{"level":"info","message":"GET /register called","timestamp":"2025-10-25T06:12:39.331Z"}
+{"level":"info","message":"GET /register called","timestamp":"2025-10-25T06:14:37.375Z"}
